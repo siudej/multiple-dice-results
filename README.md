@@ -18,3 +18,7 @@ Taking 100 sides and 1000 dice I get
 - 15 seconds for the iterative version (function dice2).
 - 25 seconds for the generator (function dice4). Though sum of 10000 needs only 6s
 - 30 seconds for 200 dice and the numpy polynomial power function
+
+### Notes
+
+There is almost no speed benefit in keeping long integers inside numpy array (type=object), as these cannot be handled by c compiled code. However this gives the convenience of using all numpy functions on such array with Python handling object related operations.
