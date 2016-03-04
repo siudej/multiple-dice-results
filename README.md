@@ -2,7 +2,7 @@
 
 How to optimize computations required to find the probability distribution of rolling a large number of dice?
 
-This started when I read the following post from http://www.tizona-sci.com/2011/07/case-study-fast-scripts-for.html
+This started when I read the following post: http://www.tizona-sci.com/2011/07/case-study-fast-scripts-for.html
 
 The problem is not hard, but it involves arbitrarily large integers, so arithmetic operations enter into complexity considerations. In particular, multiplication should probably be avoided in favor of additions and subtractions.
 
