@@ -6,7 +6,7 @@ This project started when I read the [post](http://www.tizona-sci.com/2011/07/ca
 
 The problem is not hard mathematically, but it involves arbitrarily large integers, so arithmetic operations enter into complexity considerations. In particular, multiplications should probably be avoided in favor of additions and subtractions.
 
-I had some fun optimizing Francisco's solution in Python and C++.
+I had a lot of fun optimizing Francisco's solution in Python and C++.
 
 ### Python / Numpy / gmpy2
 In general, either Python long type can be used, or a faster gmpy2 library based on gmp.
@@ -30,8 +30,8 @@ The file ends with a testing code.
 Here we can use gmp directly to handle arbitrary precision integers. As an added bonus it is possible to parallelize the code using a few OpenMP pragmas. However, the code needs to change significantly. A good parallel prefix sum implementation is needed. And another loop needs to be split into subloops with looping variable advancing by the number of faces, to make the subloops independent.
 
 Files:
-* `dice.cpp`: C++ version of option 3 from Python. Not surprisingly it is faster, but only only less than twice.
-* 'diceomp.cpp`: Parallelized OpenMP version. Even with just 2 threads, this version is faster. Although the difference cannot be significant, since parallel prefix sums require 1.5x additions with 2 threads ((2-1/k)x with k threads). 
+* `dice.cpp`: C++ version of the pure Python implementation. Not surprisingly it is faster, but only only less than twice.
+* `diceomp.cpp`: Parallelized OpenMP version. Even with just 2 threads, this version is faster. Although the difference cannot be significant, since parallel prefix sums require 1.5x additions with 2 threads ((2-1/k)x with k threads). 
 
 These can be tested with `test_c` and `timeit.sh` scripts.
 
@@ -49,7 +49,7 @@ The slowest, power by squaring methods. Even 128 rolls is a lot. And a power of 
 ##### 500 rolls
 The one-liners are faster:
 * `dice_polypow`: 187.2 s
-* `dice_polypow_gmpy2: 187.0 s
+* `dice_polypow_gmpy2`: 187.0 s
 
 ##### 1000 rolls
 Python:
