@@ -1,0 +1,5 @@
+./timeit.sh dice.out 100 1000
+./timeit.sh dice.out 100 2000
+
+./timeit.sh diceomp.out 100 1000
+./timeit.sh diceomp.out 100 2000
